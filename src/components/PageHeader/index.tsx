@@ -8,6 +8,7 @@ import "./styles.css";
 
 interface PageHeaderProps {
   title: string;
+  description?: string; // Ponto de interrogação indica que este atributo não é obrigatório
 }
 
 // PageHeader é um FunctionComponent e suas propriedades são as de PageHeaderProps
@@ -24,7 +25,10 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = (props) => {
 
       <div className="header-content">
         <strong>{props.title}</strong>
-        {props.children}
+        {/*Uma condicional onde o segundo membro só será renderizado se o primeiro resultar em true*/}
+        {props.description && <p>{props.description}</p>}
+        {/*Caso o PageHeader possua tags, serão renderizadas aqui*/}
+        {props.children}{" "}
       </div>
     </header>
   );
